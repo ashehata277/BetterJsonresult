@@ -23,11 +23,12 @@ namespace Json
 
 
 
-        public JsonResult ExcuteResult()
+        public JsonResult ExcuteResult(int? statuscode)
         {
             var x = new BetterJsonResult(
                 Value = new
                 {
+                    StatusCode = statuscode,
                     ContentType = "",
                     data = Data
                 });
@@ -71,17 +72,7 @@ namespace Json
 
     public class BetterJsonResult<T> : JsonResult
     {
-        public T  Data 
-        {
-            get
-            {
-                return (T) Value;
-            }
-            init 
-            {
-                Value = (T) value;
-            } 
-        }
+        public T Data { get; init; }
         public BetterJsonResult(object value) : base(value)
         {
         }

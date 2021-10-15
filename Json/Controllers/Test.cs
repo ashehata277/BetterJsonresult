@@ -22,7 +22,7 @@ namespace Json.Controllers
 
             return new BetterJsonResult<string>
             {
-                Data = ""
+                
             }.ExcuteResultOk();
         }
 
@@ -33,6 +33,22 @@ namespace Json.Controllers
         {
 
             return new BetterJsonResult<List<string>>
+            {
+                Data = new List<string>() 
+                {
+                    "Ahmed",
+                    "Mohamed"
+                }
+
+            }.ExcuteResult(200);
+        }
+
+         [HttpGet]
+        [Route("api/Test3")]
+        public IActionResult TestApi3()
+        {
+
+            return new BetterJsonResult
             {
                 Data = new List<string>() 
                 {
